@@ -1,0 +1,1112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galeri Baca - Ditandai</title>
+  <link rel="icon" type="img/book_information_learning_info_icon_262073.webp"
+    href="assets/img/book_information_learning_info_icon_262073.webp">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+  <!-- Font Awesome untuk ikon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Menambahkan Google Fonts untuk font elegan -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Mengatur font seluruh halaman */
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: rgb(243, 243, 243);
+    }
+
+    .dropdown-submenu {
+      position: relative;
+    }
+
+    .page-header {
+      background: linear-gradient(135deg, #000000, #3e276d);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      border-radius: 0 0 20px 20px;
+      margin-bottom: 30px;
+    }
+
+    .dropdown-submenu>.dropdown-menu {
+      top: 0;
+      left: 100%;
+      margin-top: 0;
+    }
+
+    .dropdown-submenu:hover>.dropdown-menu {
+      display: block;
+    }
+
+    .sidebar {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar .nav-link {
+      color: #333;
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      transition: all 0.3s;
+    }
+
+    .sidebar .nav-link:hover, 
+    .sidebar .nav-link.active {
+      background-color: #b8b0dd;
+      color: #000;
+    }
+
+    .sidebar .nav-link i {
+      margin-right: 10px;
+    }
+
+    .filter-section {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .bookmark-item {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .bookmark-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .bookmark-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 20px;
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 20px solid #b8b0dd;
+      transform: translateY(-1px);
+    }
+
+    .bookmark-cover {
+      width: 100px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .bookmark-date {
+      color: #666;
+      font-size: 0.85rem;
+      margin-top: 5px;
+    }
+
+    .bookmark-note {
+      background-color: #f8f9fa;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+      border-left: 4px solid #b8b0dd;
+    }
+
+    .bookmark-note-text {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 5px;
+    }
+
+    .bookmark-chapter {
+      background-color: #b8b0dd;
+      color: #000;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .bookmark-type {
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    .type-important {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .type-favorite {
+      background-color: #ffc107;
+      color: #000;
+    }
+
+    .type-later {
+      background-color: #17a2b8;
+      color: white;
+    }
+
+    .type-quote {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .interest-badge {
+      background-color: #e9ecef;
+      color: #495057;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      margin-right: 5px;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-custom {
+      background-color: #b8b0dd;
+      border: none;
+      color: #000;
+      padding: 8px 16px;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+
+    .btn-custom:hover {
+      background-color: #a098d1;
+      color: #000;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: #666;
+    }
+
+    .empty-state i {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      color: #b8b0dd;
+    }
+
+    .stats-summary {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 15px;
+    }
+
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #3e276d;
+    }
+
+    .stat-label {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .bookmark-priority {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+
+    .priority-high {
+      background-color: #dc3545;
+    }
+
+    .priority-medium {
+      background-color: #ffc107;
+    }
+
+    .priority-low {
+      background-color: #28a745;
+    }
+
+    .search-section {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .bookmark-tags {
+      margin-top: 10px;
+    }
+
+    .tag-badge {
+      background-color: #6c757d;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-size: 0.7rem;
+      margin-right: 3px;
+    }
+
+    .quick-actions {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .quick-action-btn {
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      color: #495057;
+      padding: 8px 12px;
+      border-radius: 5px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+      transition: all 0.3s;
+    }
+
+    .quick-action-btn:hover {
+      background-color: #b8b0dd;
+      border-color: #b8b0dd;
+      color: #000;
+    }
+
+    .quick-action-btn.active {
+      background-color: #b8b0dd;
+      border-color: #b8b0dd;
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="dashboard.html">
+        <img src="assets/img/book_information_learning_info_icon_262073.webp" alt="Logo" width="30" height="30"
+          class="d-inline-block align-text-top">
+        Galeri Baca
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="aboutus.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="browse.html">Browse</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Fandoms
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">All Fandoms</a></li>
+              <hr class="dropdown-divider">
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Anime & Manga</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Attack On Titan</a></li>
+                  <li><a class="dropdown-item" href="#">Eleceed</a></li>
+                  <li><a class="dropdown-item" href="#">Omniscient Reader Viewpoint</a></li>
+                  <li><a class="dropdown-item" href="#">One Piece</a></li>
+                  <li><a class="dropdown-item" href="#">Overlord</a></li>
+                  <li><a class="dropdown-item" href="#">Trash of The Count's Family</a></li>
+                </ul>
+              </li>
+              <hr class="dropdown-divider">
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">TV Shows</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Marvel</a></li>
+                  <li><a class="dropdown-item" href="#">Percy Jackson and the Olympians</a></li>
+                  <li><a class="dropdown-item" href="#">Supernatural</a></li>
+                  <li><a class="dropdown-item" href="#">The Witcher</a></li>
+                </ul>
+              </li>
+              <hr class="dropdown-divider">
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Video Game</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Genshin Impact</a></li>
+                  <li><a class="dropdown-item" href="#">Son Of The Forest</a></li>
+                  <li><a class="dropdown-item" href="#">The Forest</a></li>
+                  <li><a class="dropdown-item" href="#">Wuthering Wave</a></li>
+                </ul>
+              </li>
+              <hr class="dropdown-divider">
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">Dashboard</a>
+          </li>
+        </ul>
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" style="background-color: #b8b0dd;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user-circle me-1"></i> <span id="username-display">Username</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-book me-2"></i>My Library</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" id="logout-btn"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <h1 class="display-5"><i class="fas fa-bookmark me-3"></i>Ditandai</h1>
+      <p class="lead">Kumpulan cerita dan chapter yang telah Anda tandai untuk dibaca nanti</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-lg-3 mb-4">
+        <div class="sidebar">
+          <h4 class="mb-3">Menu Utama</h4>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="bacaan-saya.html"><i class="fas fa-book-open"></i> Bacaan Saya</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#"><i class="fas fa-bookmark"></i> Ditandai</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fas fa-history"></i> Riwayat Baca</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fas fa-star"></i> Favorit</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fas fa-pen"></i> Tulisan Saya</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fas fa-users"></i> Komunitas</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Stats Summary -->
+        <div class="stats-summary mt-4">
+          <h5 class="mb-3">Statistik Tandai</h5>
+          <div class="row">
+            <div class="col-6">
+              <div class="stat-item">
+                <div class="stat-number" id="total-bookmarks">8</div>
+                <div class="stat-label">Total Tandai</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="stat-item">
+                <div class="stat-number" id="this-week">3</div>
+                <div class="stat-label">Minggu Ini</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions mt-4">
+          <h5 class="mb-3">Aksi Cepat</h5>
+          <button class="quick-action-btn active" data-type="all">
+            <i class="fas fa-bookmark me-1"></i> Semua
+          </button>
+          <button class="quick-action-btn" data-type="important">
+            <i class="fas fa-exclamation-circle me-1"></i> Penting
+          </button>
+          <button class="quick-action-btn" data-type="favorite">
+            <i class="fas fa-heart me-1"></i> Favorit
+          </button>
+          <button class="quick-action-btn" data-type="later">
+            <i class="fas fa-clock me-1"></i> Nanti
+          </button>
+          <button class="quick-action-btn" data-type="quote">
+            <i class="fas fa-quote-left me-1"></i> Quote
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-lg-9">
+        <!-- Search Section -->
+        <div class="search-section">
+          <div class="row align-items-center">
+            <div class="col-md-8">
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fas fa-search"></i>
+                </span>
+                <input type="text" class="form-control" id="search-bookmarks" placeholder="Cari dalam tandai...">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <select class="form-select" id="sort-bookmarks">
+                <option value="newest">Terbaru</option>
+                <option value="oldest">Terlama</option>
+                <option value="title">Judul A-Z</option>
+                <option value="type">Jenis</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bookmarks List -->
+        <div id="bookmarks-list">
+          <!-- Bookmark Item 1 -->
+          <div class="bookmark-item" data-type="important" data-title="petualangan camellya">
+            <div class="bookmark-priority priority-high"></div>
+            <div class="row">
+              <div class="col-md-2">
+                <img src="assets/img/camellya.jfif" alt="Petualangan Camellya" class="bookmark-cover">
+              </div>
+              <div class="col-md-10">
+                <div class="row">
+                  <div class="col-md-8">
+                    <h4 class="mb-2">Petualangan Camellya</h4>
+                    <p class="text-muted mb-2">Oleh: Ariel Nakamura</p>
+                    <div class="bookmark-chapter">Chapter 8: Pertarungan Terakhir</div>
+                    <div class="mb-2">
+                      <span class="bookmark-type type-important">Penting</span>
+                      <span class="interest-badge">Wuthering Wave</span>
+                      <span class="interest-badge">Adventure</span>
+                    </div>
+                    <div class="bookmark-note">
+                      <p class="bookmark-note-text">"Scene ini sangat menegangkan! Camellya akhirnya menunjukkan kekuatan sejatinya."</p>
+                      <div class="bookmark-tags">
+                        <span class="tag-badge">action</span>
+                        <span class="tag-badge">power-up</span>
+                        <span class="tag-badge">epic</span>
+                      </div>
+                    </div>
+                    <div class="bookmark-date">
+                      <i class="fas fa-clock me-1"></i>Ditandai 2 jam yang lalu
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="action-buttons">
+                      <button class="btn btn-custom">
+                        <i class="fas fa-book-open me-1"></i> Baca
+                      </button>
+                      <button class="btn btn-outline-secondary btn-sm">
+                        <i class="fas fa-edit me-1"></i> Edit
+                      </button>
+                      <div class="dropdown">
+                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-share me-2"></i>Bagikan</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-copy me-2"></i>Salin Link</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-plus me-2"></i>Tambah ke Bacaan</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i>Hapus</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bookmark Item 2 -->
+          <div class="bookmark-item" data-type="quote" data-title="laut kegelapan">
+            <div class="bookmark-priority priority-medium"></div>
+            <div class="row">
+              <div class="col-md-2">
+                <img src="assets/img/wallpaperflare.com_wallpaper.jpg" alt="Laut Kegelapan" class="bookmark-cover">
+              </div>
+              <div class="col-md-10">
+                <div class="row">
+                  <div class="col-md-8">
+                    <h4 class="mb-2">Laut Kegelapan</h4>
+                    <p class="text-muted mb-2">Oleh: Rei Kazama</p>
+                    <div class="bookmark-chapter">Chapter 5: Misteri Pulau Terlupakan</div>
+                    <div class="mb-2">
+                      <span class="bookmark-type type-quote">Quote</span>
+                      <span class="interest-badge">Wuthering Wave</span>
+                      <span class="interest-badge">Dark Fantasy</span>
+                    </div>
+                    <div class="bookmark-note">
+                      <p class="bookmark-note-text">"Kegelapan bukan lawan yang harus dikalahkan, tetapi kenyataan yang harus diterima."</p>
+                      <div class="bookmark-tags">
+                        <span class="tag-badge">quote</span>
+                        <span class="tag-badge">wisdom</span>
+                        <span class="tag-badge">philosophy</span>
+                      </div>
+                    </div>
+                    <div class="bookmark-date">
+                      <i class="fas fa-clock me-1"></i>Ditandai kemarin
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="action-buttons">
+                      <button class="btn btn-custom">
+                        <i class="fas fa-book-open me-1"></i> Baca
+                      </button>
+                      <button class="btn btn-outline-secondary btn-sm">
+                        <i class="fas fa-edit me-1"></i> Edit
+                      </button>
+                      <div class="dropdown">
+                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-share me-2"></i>Bagikan</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-copy me-2"></i>Salin Link</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-plus me-2"></i>Tambah ke Bacaan</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i>Hapus</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bookmark Item 3 -->
+          <div class="bookmark-item" data-type="favorite" data-title="takdir cantarella">
+            <div class="bookmark-priority priority-low"></div>
+            <div class="row">
+              <div class="col-md-2">
+                <img src="assets/img/cantarella2.jpg" alt="Takdir Cantarella" class="bookmark-cover">
+              </div>
+              <div class="col-md-10">
+                <div class="row">
+                  <div class="col-md-8">
+                    <h4 class="mb-2">Takdir Cantarella</h4>
+                    <p class="text-muted mb-2">Oleh: Hana Kazemaru</p>
+                    <div class="bookmark-chapter">Chapter 12: Pengakuan Hati</div>
+                    <div class="mb-2">
+                      <span class="bookmark-type type-favorite">Favorit</span>
+                      <span class="interest-badge">Wuthering Wave</span>
+                      <span class="interest-badge">Romance</span>
+                    </div>
+                    <div class="bookmark-note">
+                      <p class="bookmark-note-text">Chapter romance terbaik! Pengembangan karakter yang luar biasa.</p>
+                      <div class="bookmark-tags">
+                        <span class="tag-badge">romance</span>
+                        <span class="tag-badge">character-development</span>
+                        <span class="tag-badge">favorite</span>
+                      </div>
+                    </div>
+                    <div class="bookmark-date">
+                      <i class="fas fa-clock me-1"></i>Ditandai 3 hari yang lalu
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="action-buttons">
+                      <button class="btn btn-custom">
+                        <i class="fas fa-book-open me-1"></i> Baca
+                      </button>
+                      <button class="btn btn-outline-secondary btn-sm">
+                        <i class="fas fa-edit me-1"></i> Edit
+                      </button>
+                      <div class="dropdown">
+                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-share me-2"></i>Bagikan</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-copy me-2"></i>Salin Link</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-plus me-2"></i>Tambah ke Bacaan</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i>Hapus</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bookmark Item 4 -->
+          <div class="bookmark-item" data-type="later" data-title="fallen angel">
+            <div class="bookmark-priority priority-medium"></div>
+            <div class="row">
+              <div class="col-md-2">
+                <img src="assets/img/camellya.jfif" alt="Fallen Angel" class="bookmark-cover">
+              </div>
+              <div class="col-md-10">
+                <div class="row">
+                  <div class="col-md-8">
+                    <h4 class="mb-2">Fallen Angel</h4>
+                    <p class="text-muted mb-2">Oleh: Yuki Tanaka</p>
+                    <div class="bookmark-chapter">Chapter 15: Kebangkitan</div>
+                    <div class="mb-2">
+                      <span class="bookmark-type type-later">Nanti</span>
+                      <span class="interest-badge">Supernatural</span>
+                      <span class="interest-badge">Drama</span>
+                    </div>
+                    <div class="bookmark-note">
+                      <p class="bookmark-note-text">Sepertinya chapter ini akan menjadi turning point cerita. Simpan untuk weekend.</p>
+                      <div class="bookmark-tags">
+                        <span class="tag-badge">turning-point</span>
+                        <span class="tag-badge">weekend-read</span>
+                        <span class="tag-badge">supernatural</span>
+                      </div>
+                    </div>
+                    <div class="bookmark-date">
+                      <i class="fas fa-clock me-1"></i>Ditandai 5 hari yang lalu
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="action-buttons">
+                      <button class="btn btn-custom">
+                        <i class="fas fa-book-open me-1"></i> Baca
+                      </button>
+                      <button class="btn btn-outline-secondary btn-sm">
+                        <i class="fas fa-edit me-1"></i> Edit
+                      </button>
+                      <div class="dropdown">
+                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-share me-2"></i>Bagikan</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-copy me-2"></i>Salin Link</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-plus me-2"></i>Tambah ke Bacaan</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i>Hapus</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bookmark Item 5 -->
+          <div class="bookmark-item" data-type="important" data-title="shadow realm">
+            <div class="bookmark-priority priority-high"></div>
+            <div class="row">
+              <div class="col-md-2">
+                <img src="assets/img/wallpaperflare.com_wallpaper.jpg" alt="Shadow Realm" class="bookmark-cover">
+              </div>
+              <div class="col-md-10">
+                <div class="row">
+                  <div class="col-md-8">
+                    <h4 class="mb-2">Shadow Realm</h4>
+                    <p class="text-muted mb-2">Oleh: Kenji Nakamura</p>
+                    <div class="bookmark-chapter">Chapter 7: Pertempuran di Dimensi Bayangan</div>
+                    <div class="mb-2">
+                      <span class="bookmark-type type-important">Penting</span>
+                      <span class="interest-badge">Overlord</span>
+                      <span class="interest-badge">Dark Fantasy</span>
+                    </div>
+                    <div class="bookmark-note">
+                      <p class="bookmark-note-text">Chapter ini mengungkap rahasia besar tentang asal-usul Shadow Realm. Wajib dibaca!</p>
+                      <div class="bookmark-tags">
+                        <span class="tag-badge">revelation</span>
+                        <span class="tag-badge">lore</span>
+                        <span class="tag-badge">must-read</span>
+                      </div>
+                    </div>
+                    <div class="bookmark-date">
+                      <i class="fas fa-clock me-1"></i>Ditandai 1 minggu yang lalu
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="action-buttons">
+                      <button class="btn btn-custom">
+                        <i class="fas fa-book-open me-1"></i> Baca
+                      </button>
+                      <button class="btn btn-outline-secondary btn-sm">
+                        <i class="fas fa-edit me-1"></i> Edit
+                      </button>
+                      <div class="dropdown">
+                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-share me-2"></i>Bagikan</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-copy me-2"></i>Salin Link</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-plus me-2"></i>Tambah ke Bacaan</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i>Hapus</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bookmark Item 6 -->
+          <div class="bookmark-item" data-type="quote" data-title="eternal bonds">
+            <div class="bookmark-priority priority-low"></div>
+            <div class="row">
+              <div class="col-md-2">
+                <img src="assets/img/cantarella2.jpg" alt="Eternal Bonds" class="bookmark-cover">
+              </div>
+              <div class="col-md-10">
+                <div class="row">
+                  <div class="col-md-8">
+                    <h4 class="mb-2">Eternal Bonds</h4>
+                    <p class="text-muted mb-2">Oleh: Sakura Mori</p>
+                    <div class="bookmark-chapter">Chapter 9: Janji yang Tak Terlupakan</div>
+                    <div class="mb-2">
+                      <span class="bookmark-type type-quote">Quote</span>
+                      <span class="interest-badge">Eleceed</span>
+                      <span class="interest-badge">Friendship</span>
+                    </div>
+                    <div class="bookmark-note">
+                      <p class="bookmark-note-text">"Persahabatan sejati tidak diukur dari waktu, tetapi dari kedalaman hati yang saling memahami."</p>
+                      <div class="bookmark-tags">
+                        <span class="tag-badge">friendship</span>
+                        <span class="tag-badge">inspirational</span>
+                        <span class="tag-badge">heartwarming</span>
+                      </div>
+                    </div>
+                    <div class="bookmark-date">
+                      <i class="fas fa-clock me-1"></i>Ditandai 2 minggu yang lalu
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="action-buttons">
+                      <button class="btn btn-custom">
+                        <i class="fas fa-book-open me-1"></i> Baca
+                      </button>
+                      <button class="btn btn-outline-secondary btn-sm">
+                        <i class="fas fa-edit me-1"></i> Edit
+                      </button>
+                      <div class="dropdown">
+                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-share me-2"></i>Bagikan</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-copy me-2"></i>Salin Link</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-plus me-2"></i>Tambah ke Bacaan</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i>Hapus</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bookmark Item 7 -->
+          <div class="bookmark-item" data-type="favorite" data-title="dragon's legacy">
+            <div class="bookmark-priority priority-high"></div>
+            <div class="row">
+              <div class="col-md-2">
+                <img src="assets/img/camellya.jfif" alt="Dragon's Legacy" class="bookmark-cover">
+              </div>
+              <div class="col-md-10">
+                <div class="row">
+                  <div class="col-md-8">
+                    <h4 class="mb-2">Dragon's Legacy</h4>
+                    <p class="text-muted mb-2">Oleh: Takeshi Yamamoto</p>
+                    <div class="bookmark-chapter">Chapter 20: Warisan Naga Terakhir</div>
+                    <div class="mb-2">
+                      <span class="bookmark-type type-favorite">Favorit</span>
+                      <span class="interest-badge">One Piece</span>
+                      <span class="interest-badge">Adventure</span>
+                    </div>
+                    <div class="bookmark-note">
+                      <p class="bookmark-note-text">Chapter klimaks yang menakjubkan! Akhirnya misteri warisan naga terpecahkan.</p>
+                      <div class="bookmark-tags">
+                        <span class="tag-badge">climax</span>
+                        <span class="tag-badge">mystery-solved</span>
+                        <span class="tag-badge">epic</span>
+                      </div>
+                    </div>
+                    <div class="bookmark-date">
+                      <i class="fas fa-clock me-1"></i>Ditandai 3 minggu yang lalu
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="action-buttons">
+                      <button class="btn btn-custom">
+                        <i class="fas fa-book-open me-1"></i> Baca
+                      </button>
+                      <button class="btn btn-outline-secondary btn-sm">
+                        <i class="fas fa-edit me-1"></i> Edit
+                      </button>
+                      <div class="dropdown">
+                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-share me-2"></i>Bagikan</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-copy me-2"></i>Salin Link</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-plus me-2"></i>Tambah ke Bacaan</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i>Hapus</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bookmark Item 8 -->
+          <div class="bookmark-item" data-type="later" data-title="mystic warriors">
+            <div class="bookmark-priority priority-medium"></div>
+            <div class="row">
+              <div class="col-md-2">
+                <img src="assets/img/wallpaperflare.com_wallpaper.jpg" alt="Mystic Warriors" class="bookmark-cover">
+              </div>
+              <div class="col-md-10">
+                <div class="row">
+                  <div class="col-md-8">
+                    <h4 class="mb-2">Mystic Warriors</h4>
+                    <p class="text-muted mb-2">Oleh: Rina Sato</p>
+                    <div class="bookmark-chapter">Chapter 11: Aliansi Tak Terduga</div>
+                    <div class="mb-2">
+                      <span class="bookmark-type type-later">Nanti</span>
+                      <span class="interest-badge">Genshin Impact</span>
+                      <span class="interest-badge">Fantasy</span>
+                    </div>
+                    <div class="bookmark-note">
+                      <p class="bookmark-note-text">Chapter ini terlihat menarik dengan pembentukan aliansi baru. Akan baca saat ada waktu luang.</p>
+                      <div class="bookmark-tags">
+                        <span class="tag-badge">alliance</span>
+                        <span class="tag-badge">strategy</span>
+                        <span class="tag-badge">fantasy</span>
+                      </div>
+                    </div>
+                    <div class="bookmark-date">
+                      <i class="fas fa-clock me-1"></i>Ditandai 1 bulan yang lalu
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="action-buttons">
+                      <button class="btn btn-custom">
+                        <i class="fas fa-book-open me-1"></i> Baca
+                      </button>
+                      <button class="btn btn-outline-secondary btn-sm">
+                        <i class="fas fa-edit me-1"></i> Edit
+                      </button>
+                      <div class="dropdown">
+                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-share me-2"></i>Bagikan</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-copy me-2"></i>Salin Link</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fas fa-plus me-2"></i>Tambah ke Bacaan</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i>Hapus</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Empty State (shown when no bookmarks match filter) -->
+        <div class="empty-state" id="empty-state" style="display: none;">
+          <i class="fas fa-bookmark"></i>
+          <h3>Tidak ada tandai yang ditemukan</h3>
+          <p>Coba ubah filter pencarian atau tambahkan bookmark baru</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <script>
+    // Set username on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const username = localStorage.getItem('username') || 'Username';
+      document.getElementById('username-display').textContent = username;
+    });
+
+    // Logout functionality
+    document.getElementById('logout-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      localStorage.removeItem('username');
+      localStorage.removeItem('userLoggedIn');
+      window.location.href = 'index.html';
+    });
+
+    // Search functionality
+    document.getElementById('search-bookmarks').addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase();
+      const bookmarks = document.querySelectorAll('.bookmark-item');
+      let hasResults = false;
+
+      bookmarks.forEach(bookmark => {
+        const title = bookmark.dataset.title.toLowerCase();
+        const content = bookmark.textContent.toLowerCase();
+        
+        if (title.includes(searchTerm) || content.includes(searchTerm)) {
+          bookmark.style.display = 'block';
+          hasResults = true;
+        } else {
+          bookmark.style.display = 'none';
+        }
+      });
+
+      document.getElementById('empty-state').style.display = hasResults ? 'none' : 'block';
+    });
+
+    // Filter by type functionality
+    document.querySelectorAll('.quick-action-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        // Remove active class from all buttons
+        document.querySelectorAll('.quick-action-btn').forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to clicked button
+        this.classList.add('active');
+        
+        const filterType = this.dataset.type;
+        const bookmarks = document.querySelectorAll('.bookmark-item');
+        let hasResults = false;
+
+        bookmarks.forEach(bookmark => {
+          if (filterType === 'all' || bookmark.dataset.type === filterType) {
+            bookmark.style.display = 'block';
+            hasResults = true;
+          } else {
+            bookmark.style.display = 'none';
+          }
+        });
+
+        document.getElementById('empty-state').style.display = hasResults ? 'none' : 'block';
+      });
+    });
+
+    // Sort functionality
+    document.getElementById('sort-bookmarks').addEventListener('change', function() {
+      const sortBy = this.value;
+      const bookmarksList = document.getElementById('bookmarks-list');
+      const bookmarks = Array.from(bookmarksList.querySelectorAll('.bookmark-item'));
+      
+      bookmarks.sort((a, b) => {
+        switch(sortBy) {
+          case 'newest':
+            // Sort by data-time attribute (you may need to add this)
+            return 0; // Default order
+          case 'oldest':
+            return 0; // Reverse order
+          case 'title':
+            return a.dataset.title.localeCompare(b.dataset.title);
+          case 'type':
+            return a.dataset.type.localeCompare(b.dataset.type);
+          default:
+            return 0;
+        }
+      });
+
+      // Clear and re-append sorted bookmarks
+      bookmarksList.innerHTML = '';
+      bookmarks.forEach(bookmark => bookmarksList.appendChild(bookmark));
+    });
+
+    // Add click handlers for action buttons
+    document.querySelectorAll('.btn-custom').forEach(button => {
+      button.addEventListener('click', function() {
+        // Simulate reading functionality
+        alert('Membuka halaman baca...');
+      });
+    });
+
+    // Add click handlers for edit buttons
+    document.querySelectorAll('.btn-outline-secondary').forEach(button => {
+      if (button.innerHTML.includes('Edit')) {
+        button.addEventListener('click', function() {
+          alert('Membuka editor bookmark...');
+        });
+      }
+    });
+
+    // Add click handlers for dropdown actions
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+      item.addEventListener('click', function(e) {
+        e.preventDefault();
+        const action = this.textContent.trim();
+        
+        switch(action) {
+          case 'Bagikan':
+            alert('Membagikan bookmark...');
+            break;
+          case 'Salin Link':
+            alert('Link telah disalin ke clipboard!');
+            break;
+          case 'Tambah ke Bacaan':
+            alert('Ditambahkan ke daftar bacaan!');
+            break;
+          case 'Hapus':
+            if (confirm('Apakah Anda yakin ingin menghapus bookmark ini?')) {
+              this.closest('.bookmark-item').remove();
+              // Update stats
+              const totalBookmarks = document.querySelectorAll('.bookmark-item').length;
+              document.getElementById('total-bookmarks').textContent = totalBookmarks;
+            }
+            break;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

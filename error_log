@@ -1,0 +1,14 @@
+[15-Jul-2025 12:35:31 UTC] PHP Warning:  include(_sidebarDashboard.php): Failed to open stream: No such file or directory in /home/tugasid/public_html/galeribaca.tugas1.id/dashboard.php on line 46
+[15-Jul-2025 12:35:31 UTC] PHP Stack trace:
+[15-Jul-2025 12:35:31 UTC] PHP   1. {main}() /home/tugasid/public_html/galeribaca.tugas1.id/dashboard.php:0
+[15-Jul-2025 12:35:31 UTC] PHP Warning:  include(): Failed opening '_sidebarDashboard.php' for inclusion (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/tugasid/public_html/galeribaca.tugas1.id/dashboard.php on line 46
+[15-Jul-2025 12:35:31 UTC] PHP Stack trace:
+[15-Jul-2025 12:35:31 UTC] PHP   1. {main}() /home/tugasid/public_html/galeribaca.tugas1.id/dashboard.php:0
+[15-Jul-2025 13:39:31 UTC] PHP Warning:  Undefined array key "interests" in /home/tugasid/public_html/galeribaca.tugas1.id/browse.php on line 89
+[15-Jul-2025 13:39:31 UTC] PHP Stack trace:
+[15-Jul-2025 13:39:31 UTC] PHP   1. {main}() /home/tugasid/public_html/galeribaca.tugas1.id/browse.php:0
+[15-Jul-2025 14:02:20 UTC] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home/tugasid/public_html/galeribaca.tugas1.id/_flagTandai.php:23
+Stack trace:
+#0 /home/tugasid/public_html/galeribaca.tugas1.id/_flagTandai.php(23): mysqli_stmt->bind_param()
+#1 {main}
+  thrown in /home/tugasid/public_html/galeribaca.tugas1.id/_flagTandai.php on line 23

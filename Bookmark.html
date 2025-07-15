@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bookmark Terbaru - Galeri Baca</title>
+  <link rel="icon" type="img/book_information_learning_info_icon_262073.webp"
+    href="assets/img/book_information_learning_info_icon_262073.webp">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .dropdown-submenu {
+      position: relative;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #000000, #3e276d);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      border-radius: 0 0 20px 20px;
+    }
+
+    .bookmark-section {
+      background-color: #f9f8ff;
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-title {
+      color: #3e276d;
+      border-bottom: 2px solid #b8b0dd;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+
+    .bookmark-item {
+      border-left: 4px solid #b8b0dd;
+      transition: all 0.3s ease;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .bookmark-item:hover {
+      border-left: 4px solid #6c4a9e;
+      background-color: #f3f0ff;
+      transform: translateX(5px);
+    }
+
+    .bookmark-meta {
+      color: #6c4a9e;
+      font-size: 0.9em;
+    }
+
+    .bookmark-time {
+      color: #9f6bbd;
+      font-size: 0.8em;
+    }
+
+    .bookmark-stats {
+      display: flex;
+      gap: 15px;
+      color: #666;
+      font-size: 0.8em;
+    }
+
+    .filter-section {
+      background-color: #f3f0ff;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .filter-btn {
+      background-color: #b8b0dd;
+      border: none;
+      color: #333;
+      padding: 8px 16px;
+      border-radius: 20px;
+      margin: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background-color: #6c4a9e;
+      color: white;
+    }
+
+    .pagination .page-link {
+      color: rgb(124, 28, 189);
+      background-color: #ffffff;
+      border: 1px solid #603b91;
+    }
+
+    .pagination .page-link:hover {
+      background-color: #9f6bbd;
+      border-color: #9f6bbd;
+    }
+
+    .pagination .page-item.active .page-link {
+      background-color: #030303;
+      border-color: #004085;
+      color: rgb(165, 125, 177);
+    }
+
+    .dropdown-submenu>.dropdown-menu {
+      top: 0;
+      left: 100%;
+      margin-top: 0;
+    }
+
+    .dropdown-submenu:hover>.dropdown-menu {
+      display: block;
+    }
+
+    .bookmark-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .bookmark-actions button {
+      background: none;
+      border: none;
+      color: #6c4a9e;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .bookmark-actions button:hover {
+      color: #3e276d;
+    }
+  </style>
+</head>
+
+<body style="background-color: rgb(243, 243, 243);">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="dashboard.html">
+        <img src="assets/img/book_information_learning_info_icon_262073.webp" alt="Logo" width="30" height="30"
+          class="d-inline-block align-text-top">
+        Galeri Baca
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="aboutus.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="browse.html">Browse</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Fandoms
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">All Fandoms</a></li>
+              <hr class="dropdown-divider">
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Anime & Manga</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Attack On Titan</a></li>
+                  <li><a class="dropdown-item" href="#">Eleceed</a></li>
+                  <li><a class="dropdown-item" href="#">Omniscient Reader Viewpoint</a></li>
+                  <li><a class="dropdown-item" href="#">One Piece</a></li>
+                  <li><a class="dropdown-item" href="#">Overlord</a></li>
+                  <li><a class="dropdown-item" href="#">Trash of The Count's Family</a></li>
+                </ul>
+              </li>
+              <hr class="dropdown-divider">
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">TV Shows</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Marvel</a></li>
+                  <li><a class="dropdown-item" href="#">Percy Jackson and the Olympians</a></li>
+                  <li><a class="dropdown-item" href="#">Supernatural</a></li>
+                  <li><a class="dropdown-item" href="#">The Witcher</a></li>
+                </ul>
+              </li>
+              <hr class="dropdown-divider">
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Video Game</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Genshin Impact</a></li>
+                  <li><a class="dropdown-item" href="#">Son Of The Forest</a></li>
+                  <li><a class="dropdown-item" href="#">The Forest</a></li>
+                  <li><a class="dropdown-item" href="#">Wuthering Wave</a></li>
+                </ul>
+              </li>
+              <hr class="dropdown-divider">
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">Dashboard</a>
+          </li>
+        </ul>
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" style="background-color: #b8b0dd;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user-circle me-1"></i> <span id="username-display">Username</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-book me-2"></i>My Library</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" id="logout-btn"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <h1 class="display-4">Bookmark Terbaru</h1>
+      <p class="lead">Temukan karya-karya yang baru saja di-bookmark oleh komunitas</p>
+      <div class="mt-4">
+        <form class="d-flex justify-content-center">
+          <div class="input-group" style="max-width: 600px;">
+            <input class="form-control" type="search" placeholder="Cari bookmark..." aria-label="Search">
+            <button class="btn" style="background-color: #b8b0dd;" type="submit">Cari</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="container my-5">
+    <!-- Filter Section -->
+    <div class="filter-section">
+      <h5 class="mb-3">Filter Bookmark</h5>
+      <div class="row">
+        <div class="col-md-4">
+          <label class="form-label">Berdasarkan Waktu:</label>
+          <div>
+            <button class="filter-btn active" data-filter="all">Semua</button>
+            <button class="filter-btn" data-filter="hour">1 Jam</button>
+            <button class="filter-btn" data-filter="day">Hari Ini</button>
+            <button class="filter-btn" data-filter="week">Minggu Ini</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Berdasarkan Fandom:</label>
+          <div>
+            <button class="filter-btn active" data-filter="all-fandom">Semua</button>
+            <button class="filter-btn" data-filter="anime">Anime</button>
+            <button class="filter-btn" data-filter="game">Game</button>
+            <button class="filter-btn" data-filter="tv">TV Show</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Berdasarkan Genre:</label>
+          <div>
+            <button class="filter-btn active" data-filter="all-genre">Semua</button>
+            <button class="filter-btn" data-filter="romance">Romance</button>
+            <button class="filter-btn" data-filter="fantasy">Fantasy</button>
+            <button class="filter-btn" data-filter="mystery">Mystery</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bookmark List -->
+    <div class="bookmark-section">
+      <h2 class="section-title">Daftar Bookmark Terbaru</h2>
+      
+      <div class="list-group">
+        <!-- Bookmark Item 1 -->
+        <div class="list-group-item list-group-item-action bookmark-item">
+          <div class="d-flex w-100 justify-content-between align-items-start">
+            <div class="flex-grow-1">
+              <h5 class="mb-1">Shadows of Tomorrow</h5>
+              <p class="mb-2">Ketika masa lalu dan masa depan bersinggungan, pilihan harus dibuat. Sebuah kisah yang menggabungkan elemen sci-fi dengan drama mendalam.</p>
+              <div class="bookmark-meta">
+                <span>Di-bookmark oleh: <strong>RavenReader</strong></span> | 
+                <span>Karya oleh: <strong>TwilightScribe</strong></span> | 
+                <span>Fandom: <strong>Sci-Fi</strong></span>
+              </div>
+              <div class="bookmark-stats mt-2">
+                <span><i class="fas fa-heart"></i> 1,245 kudos</span>
+                <span><i class="fas fa-bookmark"></i> 789 bookmarks</span>
+                <span><i class="fas fa-comment"></i> 156 comments</span>
+                <span><i class="fas fa-eye"></i> 5,678 hits</span>
+              </div>
+            </div>
+            <div class="d-flex flex-column align-items-end">
+              <small class="bookmark-time">1 jam yang lalu</small>
+              <div class="bookmark-actions mt-2">
+                <button title="Bookmark"><i class="fas fa-bookmark"></i></button>
+                <button title="Share"><i class="fas fa-share"></i></button>
+                <button title="Report"><i class="fas fa-flag"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bookmark Item 2 -->
+        <div class="list-group-item list-group-item-action bookmark-item">
+          <div class="d-flex w-100 justify-content-between align-items-start">
+            <div class="flex-grow-1">
+              <h5 class="mb-1">Whispers in the Dark</h5>
+              <p class="mb-2">Rahasia tersembunyi di balik tembok kuno kastil tua yang menunggu untuk ditemukan. Misteri yang akan membuat Anda terjaga sepanjang malam.</p>
+              <div class="bookmark-meta">
+                <span>Di-bookmark oleh: <strong>MysteryFan</strong></span> | 
+                <span>Karya oleh: <strong>GhostWriter</strong></span> | 
+                <span>Fandom: <strong>Horror</strong></span>
+              </div>
+              <div class="bookmark-stats mt-2">
+                <span><i class="fas fa-heart"></i> 892 kudos</span>
+                <span><i class="fas fa-bookmark"></i> 456 bookmarks</span>
+                <span><i class="fas fa-comment"></i> 203 comments</span>
+                <span><i class="fas fa-eye"></i> 3,421 hits</span>
+              </div>
+            </div>
+            <div class="d-flex flex-column align-items-end">
+              <small class="bookmark-time">3 jam yang lalu</small>
+              <div class="bookmark-actions mt-2">
+                <button title="Bookmark"><i class="fas fa-bookmark"></i></button>
+                <button title="Share"><i class="fas fa-share"></i></button>
+                <button title="Report"><i class="fas fa-flag"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bookmark Item 3 -->
+        <div class="list-group-item list-group-item-action bookmark-item">
+          <div class="d-flex w-100 justify-content-between align-items-start">
+            <div class="flex-grow-1">
+              <h5 class="mb-1">Dreams of Cherry Blossoms</h5>
+              <p class="mb-2">Perjalanan Haruki menemukan cinta di tengah kelopak sakura yang berguguran. Sebuah kisah romantis yang menyentuh hati.</p>
+              <div class="bookmark-meta">
+                <span>Di-bookmark oleh: <strong>SakuraLover</strong></span> | 
+                <span>Karya oleh: <strong>BlossomTales</strong></span> | 
+                <span>Fandom: <strong>Romance</strong></span>
+              </div>
+              <div class="bookmark-stats mt-2">
+                <span><i class="fas fa-heart"></i> 2,103 kudos</span>
+                <span><i class="fas fa-bookmark"></i> 1,234 bookmarks</span>
+                <span><i class="fas fa-comment"></i> 345 comments</span>
+                <span><i class="fas fa-eye"></i> 7,890 hits</span>
+              </div>
+            </div>
+            <div class="d-flex flex-column align-items-end">
+              <small class="bookmark-time">6 jam yang lalu</small>
+              <div class="bookmark-actions mt-2">
+                <button title="Bookmark"><i class="fas fa-bookmark"></i></button>
+                <button title="Share"><i class="fas fa-share"></i></button>
+                <button title="Report"><i class="fas fa-flag"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bookmark Item 4 -->
+        <div class="list-group-item list-group-item-action bookmark-item">
+          <div class="d-flex w-100 justify-content-between align-items-start">
+            <div class="flex-grow-1">
+              <h5 class="mb-1">Legends of the Forgotten Realm</h5>
+              <p class="mb-2">Petualangan epik di dunia yang telah lama hilang dari ingatan manusia. Sebuah fantasi yang akan membawa Anda ke dimensi lain.</p>
+              <div class="bookmark-meta">
+                <span>Di-bookmark oleh: <strong>AdventureSoul</strong></span> | 
+                <span>Karya oleh: <strong>MythMaker</strong></span> | 
+                <span>Fandom: <strong>Fantasy</strong></span>
+              </div>
+              <div class="bookmark-stats mt-2">
+                <span><i class="fas fa-heart"></i> 1,567 kudos</span>
+                <span><i class="fas fa-bookmark"></i> 923 bookmarks</span>
+                <span><i class="fas fa-comment"></i> 287 comments</span>
+                <span><i class="fas fa-eye"></i> 6,234 hits</span>
+              </div>
+            </div>
+            <div class="d-flex flex-column align-items-end">
+              <small class="bookmark-time">9 jam yang lalu</small>
+              <div class="bookmark-actions mt-2">
+                <button title="Bookmark"><i class="fas fa-bookmark"></i></button>
+                <button title="Share"><i class="fas fa-share"></i></button>
+                <button title="Report"><i class="fas fa-flag"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bookmark Item 5 -->
+        <div class="list-group-item list-group-item-action bookmark-item">
+          <div class="d-flex w-100 justify-content-between align-items-start">
+            <div class="flex-grow-1">
+              <h5 class="mb-1">The Guardian's Secret</h5>
+              <p class="mb-2">Kisah tentang seorang penjaga yang menyimpan rahasia berbahaya yang bisa mengubah takdir dunia. Aksi dan misteri yang menegangkan.</p>
+              <div class="bookmark-meta">
+                <span>Di-bookmark oleh: <strong>SecretKeeper</strong></span> | 
+                <span>Karya oleh: <strong>GuardianTales</strong></span> | 
+                <span>Fandom: <strong>Action</strong></span>
+              </div>
+              <div class="bookmark-stats mt-2">
+                <span><i class="fas fa-heart"></i> 1,876 kudos</span>
+                <span><i class="fas fa-bookmark"></i> 1,101 bookmarks</span>
+                <span><i class="fas fa-comment"></i> 412 comments</span>
+                <span><i class="fas fa-eye"></i> 8,765 hits</span>
+              </div>
+            </div>
+            <div class="d-flex flex-column align-items-end">
+              <small class="bookmark-time">12 jam yang lalu</small>
+              <div class="bookmark-actions mt-2">
+                <button title="Bookmark"><i class="fas fa-bookmark"></i></button>
+                <button title="Share"><i class="fas fa-share"></i></button>
+                <button title="Report"><i class="fas fa-flag"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bookmark Item 6 -->
+        <div class="list-group-item list-group-item-action bookmark-item">
+          <div class="d-flex w-100 justify-content-between align-items-start">
+            <div class="flex-grow-1">
+              <h5 class="mb-1">Eternal Love Story</h5>
+              <p class="mb-2">Cinta yang melampaui batas waktu dan ruang. Sebuah kisah yang akan mengajarkan arti sejati dari cinta abadi.</p>
+              <div class="bookmark-meta">
+                <span>Di-bookmark oleh: <strong>EternalReader</strong></span> | 
+                <span>Karya oleh: <strong>LovePoet</strong></span> | 
+                <span>Fandom: <strong>Romance</strong></span>
+              </div>
+              <div class="bookmark-stats mt-2">
+                <span><i class="fas fa-heart"></i> 3,245 kudos</span>
+                <span><i class="fas fa-bookmark"></i> 1,876 bookmarks</span>
+                <span><i class="fas fa-comment"></i> 567 comments</span>
+                <span><i class="fas fa-eye"></i> 12,345 hits</span>
+              </div>
+            </div>
+            <div class="d-flex flex-column align-items-end">
+              <small class="bookmark-time">15 jam yang lalu</small>
+              <div class="bookmark-actions mt-2">
+                <button title="Bookmark"><i class="fas fa-bookmark"></i></button>
+                <button title="Share"><i class="fas fa-share"></i></button>
+                <button title="Report"><i class="fas fa-flag"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center py-4 bg-light">
+    <p class="mb-0">&copy; 2025 Galeri Baca.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="js/navbar.js"></script>
+
+  <script>
+    // Script untuk menangani dropdown submenu
+    document.addEventListener('DOMContentLoaded', function () {
+      var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu > a');
+      dropdownSubmenus.forEach(function (element) {
+        element.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var submenu = this.nextElementSibling;
+          if (submenu.style.display === 'block') {
+            submenu.style.display = 'none';
+          } else {
+            submenu.style.display = 'block';
+          }
+        });
+      });
+
+      // Script untuk filter buttons
+      var filterButtons = document.querySelectorAll('.filter-btn');
+      filterButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          // Remove active class from siblings
+          var siblings = this.parentElement.querySelectorAll('.filter-btn');
+          siblings.forEach(function(sibling) {
+            sibling.classList.remove('active');
+          });
+          // Add active class to clicked button
+          this.classList.add('active');
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

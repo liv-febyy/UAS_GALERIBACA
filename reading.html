@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galeri Baca - Chapter Reading</title>
+  <link rel="icon" type="img/book_information_learning_info_icon_262073.webp"
+    href="assets/img/book_information_learning_info_icon_262073.webp">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: rgb(243, 243, 243);
+    }
+
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .chapter-header {
+      background: linear-gradient(135deg, #000000, #3e276d);
+      color: white;
+      padding: 30px 20px;
+      border-radius: 0 0 20px 20px;
+      margin-bottom: 30px;
+    }
+
+    .reading-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .chapter-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #333;
+      text-align: justify;
+    }
+
+    .chapter-content p {
+      margin-bottom: 1.5rem;
+    }
+
+    .navigation-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: 30px 0;
+    }
+
+    .nav-button {
+      background-color: #b8b0dd;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 5px;
+      color: #333;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-button:hover {
+      background-color: #9f6bbd;
+      color: white;
+    }
+
+    .chapter-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .chapter-selector {
+      width: 200px;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .action-button {
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      transition: all 0.3s ease;
+    }
+
+    .action-button:hover {
+      background-color: #b8b0dd;
+      color: white;
+    }
+
+    .book-details {
+      background-color: #f7f7f7;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    .chapter-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .comments-section {
+      margin-top: 50px;
+      border-top: 1px solid #eee;
+      padding-top: 30px;
+    }
+
+    .comment {
+      border-bottom: 1px solid #eee;
+      padding: 15px 0;
+    }
+
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .reading-options {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .reading-option {
+      background-color: #b8b0dd;
+      color: #333;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .reading-option:hover {
+      background-color: #9f6bbd;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .font-options {
+      display: none;
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      position: absolute;
+      bottom: 60px;
+      right: 0;
+      width: 250px;
+    }
+
+    .show-options {
+      display: block;
+    }
+
+    .font-size-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .color-schemes {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .color-scheme {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .light-scheme {
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+    }
+
+    .dark-scheme {
+      background-color: #333;
+      border: 1px solid #555;
+    }
+
+    .sepia-scheme {
+      background-color: #f1e5d2;
+      border: 1px solid #d3c7b1;
+    }
+
+    @media (max-width: 768px) {
+      .reading-container {
+        padding: 20px 15px;
+      }
+
+      .chapter-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="assets/img/book_information_learning_info_icon_262073.webp" alt="Logo" width="30" height="30"
+          class="d-inline-block align-text-top">
+        Galeri Baca
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="aboutus.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="browse.html">Browse</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Fandoms
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">All Fandoms</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Anime & Manga</a></li>
+              <li><a class="dropdown-item" href="#">TV Shows</a></li>
+              <li><a class="dropdown-item" href="#">Video Game</a></li>
+            </ul>
+          </li>
+        </ul>
+        <a href="login.html" class="btn" style="background-color: #b8b0dd;">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="chapter-header">
+    <div class="container">
+      <h1 class="chapter-title">Chapter 1: Fallen Angel</h1>
+      <p class="novel-title">From: Bloom Bearer Chronicles</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="reading-container">
+      <div class="chapter-info">
+        <div>
+          <h2 class="fs-4">Chapter 1: Fallen Angel</h2>
+          <p class="text-muted">Updated: May 16, 2025 • 4.8★ (1,241 ratings)</p>
+        </div>
+        <div>
+          <select class="form-select chapter-selector">
+            <option>Chapter 1: Fallen Angel</option>
+            <option>Chapter 2: Revelation</option>
+            <option>Chapter 3: Dark Tide</option>
+            <option>Chapter 4: Awakening</option>
+            <option>Chapter 5: The Black Shores</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="action-button" title="Add to Library">
+          <i class="fas fa-bookmark"></i>
+        </button>
+        <button class="action-button" title="Rate">
+          <i class="fas fa-star"></i>
+        </button>
+        <button class="action-button" title="Share">
+          <i class="fas fa-share-alt"></i>
+        </button>
+        <button class="action-button" title="Report">
+          <i class="fas fa-flag"></i>
+        </button>
+      </div>
+
+      <div class="chapter-content mt-4">
+        <p>The crimson petals danced in the wind as Camellya stepped onto the black shores, her silver hair flowing behind her like a banner of defiance. The scent of danger that always clung to her seemed to intensify as she approached the water's edge. This place—the Black Shores—had been calling to her for as long as she could remember.</p>
+
+        <p>As a Bloom Bearer, she was different from the rest of her kind. While others cherished their connection to nature's beauty, she had always been drawn to its wild, untamed aspects. The darkness that lurked beneath the surface, the chaos that birthed creation—these were the things that fascinated her.</p>
+
+        <p>"So this is where fate has led me," she murmured, her voice carrying across the eerily still waters. No waves crashed upon these shores, no birds sang overhead. Only silence greeted her, a silence so profound it seemed alive.</p>
+
+        <p>She knelt down, allowing her fingertips to graze the obsidian sand. It was cool to the touch, almost soothing, despite its foreboding appearance. As her fingers dug deeper, she felt a pulse—a heartbeat that seemed to emanate from the very ground beneath her.</p>
+
+        <p>The chains that had once bound her to the Laws of the Seven Realms had long since shattered, leaving her free to wander as she wished. But freedom came with its own burden: the endless search for purpose.</p>
+
+        <p>"Is this what you wanted me to find?" she asked, addressing the empty air. She often spoke to fate as if it were an entity, a companion on her long journey. Sometimes, in the whispers of the wind or the patterns of the stars, she thought she could hear it answer.</p>
+
+        <p>Today, however, the response came in a different form.</p>
+
+        <p>The ground beneath her trembled, sending ripples across the motionless water. The obsidian sand shifted, forming intricate patterns that swirled around her kneeling form. Ancient symbols appeared and disappeared, too quickly for even her immortal eyes to decipher.</p>
+
+        <p>And then, a voice—deep and resonant, yet somehow hollow, as if it came from everywhere and nowhere at once.</p>
+
+        <p>"Bloom Bearer of the Black Shores. You have answered the call."</p>
+
+        <p>Camellya rose to her feet, her expression unchanged despite the extraordinary occurrence. She had long since learned that showing fear or surprise only gave others power over her. And power was something she guarded jealously.</p>
+
+        <p>"I answer to no call," she replied coolly. "I follow only the path of my own choosing."</p>
+
+        <p>A sound like laughter echoed across the barren landscape, though it held no mirth. "Yet here you stand, exactly where you were meant to be. Call it fate, call it choice—the result remains the same."</p>
+
+        <p>The symbols in the sand began to glow with an unearthly light, casting long shadows that seemed to take on lives of their own. They twisted and turned, forming shapes that resembled humanoid figures engaged in an eternal dance.</p>
+
+        <p>"What is this place?" Camellya asked, her curiosity overcoming her desire to maintain an air of indifference. "Why does it feel... familiar?"</p>
+
+        <p>"This is the threshold," the voice answered. "The boundary between what is and what could be. And you, Fallen Angel, are its guardian—though you have forgotten."</p>
+
+        <p><em>Fallen Angel</em>. The title resonated within her, awakening memories she didn't know she possessed. Flashes of a different life, a different realm, filled her mind: wings of light that darkened with each choice she made, a fall that seemed endless, and finally, rebirth as the being she now was.</p>
+
+        <p>"I am no angel," she said, but the conviction in her voice had wavered. "Fallen or otherwise."</p>
+
+        <p>"You are what you have always been," the voice countered. "A creature of twilight, belonging neither to the light nor the dark, but finding your home in the spaces between. It is why you have always felt adrift, even as you claimed to cherish your freedom."</p>
+
+        <p>The dancing shadows grew more solid, more defined, until they were no longer mere silhouettes but beings that resembled her in form if not in substance. They circled her, their movements both graceful and predatory.</p>
+
+        <p>"What do you want from me?" Camellya demanded, her hand instinctively reaching for the dagger sheathed at her hip. The blade, forged from a fallen star, was one of the few weapons capable of harming entities beyond the physical realm.</p>
+
+        <p>"Want?" The voice seemed amused. "We want nothing from you that you are not already giving. Your presence here completes a cycle begun millennia ago. The wheel turns, Bloom Bearer, and you are its axis."</p>
+
+        <p>The shadow beings closed in, their featureless faces somehow conveying hunger, yearning. Camellya drew her dagger, its starlight edge gleaming against the darkness.</p>
+
+        <p>"Stay back," she warned, though she knew such threats were likely meaningless against whatever these creatures were.</p>
+
+        <p>To her surprise, they heeded her command, retreating several steps before resuming their circular dance at a respectful distance.</p>
+
+        <p>"They obey you," the voice noted. "As they should. You may have forgotten your true nature, but they have not forgotten their queen."</p>
+
+        <p><em>Queen</em>. Another title that stirred something deep within her. Images of a throne made of intertwined branches and bones, a crown of wilted flowers and thorns, subjects who both feared and adored her.</p>
+
+        <p>"This is madness," Camellya whispered, but even as she said it, she felt the truth of the voice's words settling into her bones, becoming part of her.</p>
+
+        <p>"This is awakening," the voice corrected. "The first of many. The Black Shores have waited for your return, Fallen Angel. And now the waiting is over."</p>
+
+        <p>The sand beneath her feet began to shift again, this time forming a path that led away from the shore and toward a distant structure she hadn't noticed before—a temple or palace of some sort, its architecture both alien and intimately familiar.</p>
+
+        <p>"Follow the path," the voice instructed. "Reclaim what was lost. Remember who you were meant to be."</p>
+
+        <p>Camellya hesitated, torn between the urge to flee from this strange place with its even stranger revelations and the pull she felt toward the distant structure. Something awaited her there, something important—she could feel it.</p>
+
+        <p>"And if I choose not to?" she asked, testing the limits of this apparent destiny.</p>
+
+        <p>"Then you will continue to wander, untethered, forever seeking what you have just found." The voice had lost its echoing quality, becoming almost gentle. "The choice, as always, remains yours. That is the one constant of your existence, Bloom Bearer—the freedom to choose, even when the choices lead you back to where you began."</p>
+
+        <p>Camellya looked down at the path, then back at the obsidian waters of the Black Shores. The danger she had always carried with her seemed to call out to the dangers that lurked in this place, recognizing them as kin.</p>
+
+        <p>With a decisive nod, she sheathed her dagger and took her first step on the path. The shadow beings followed, maintaining their distance but matching her pace. As she walked, she felt something shifting within her—not a physical change, but a realignment of her very essence.</p>
+
+        <p>The Bloom Bearer of the Black Shores, the Fallen Angel, was coming home at last. And with each step, the world trembled in anticipation of what that homecoming would mean.</p>
+      </div>
+
+      <div class="navigation-buttons">
+        <a href="#" class="nav-button">
+          <i class="fas fa-arrow-left"></i> Previous Chapter
+        </a>
+        <a href="#" class="nav-button">
+          Next Chapter <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="book-details">
+        <h3>About "Bloom Bearer Chronicles"</h3>
+        <p>Follow the journey of Camellya, a Bloom Bearer from the Black Shores with a mysterious past and an uncertain future. As she discovers her true identity as a Fallen Angel, she must navigate the dangerous world of divine politics, ancient prophecies, and her own conflicting desires.</p>
+        <div class="d-flex justify-content-between align-items-center mt-3">
+          <div>
+            <span class="badge bg-secondary me-2">Fantasy</span>
+            <span class="badge bg-secondary me-2">Adventure</span>
+            <span class="badge bg-secondary">Romance</span>
+          </div>
+          <a href="#" class="btn" style="background-color: #b8b0dd;">View All Chapters</a>
+        </div>
+      </div>
+
+      <div class="comments-section">
+        <h3>Comments (24)</h3>
+        
+        <div class="mb-3">
+          <textarea class="form-control" rows="3" placeholder="Leave a comment..."></textarea>
+          <div class="d-flex justify-content-end mt-2">
+            <button class="btn" style="background-color: #b8b0dd;">Post Comment</button>
+          </div>
+        </div>
+
+        <div class="comment">
+          <div class="comment-header">
+            <div class="user-info">
+              <img src="/api/placeholder/40/40" alt="User Avatar" class="user-avatar">
+              <div>
+                <p class="mb-0 fw-bold">LiteraryDreamer</p>
+                <small class="text-muted">2 days ago</small>
+              </div>
+            </div>
+            <div>
+              <i class="fas fa-thumbs-up me-1"></i> 14
+            </div>
+          </div>
+          <p>This opening chapter has such a mystical atmosphere! The Black Shores sound hauntingly beautiful. Can't wait to learn more about Camellya's past as the Fallen Angel.</p>
+        </div>
+
+        <div class="comment">
+          <div class="comment-header">
+            <div class="user-info">
+              <img src="/api/placeholder/40/40" alt="User Avatar" class="user-avatar">
+              <div>
+                <p class="mb-0 fw-bold">BookwormExtraordinaire</p>
+                <small class="text-muted">1 day ago</small>
+              </div>
+            </div>
+            <div>
+              <i class="fas fa-thumbs-up me-1"></i> 7
+            </div>
+          </div>
+          <p>The imagery in this chapter is absolutely stunning. I could clearly picture the obsidian sand and those creepy shadow figures. The author has a real talent for descriptive writing!</p>
+        </div>
+
+        <div class="d-flex justify-content-center mt-4">
+          <a href="#" class="btn" style="background-color: #b8b0dd;">Load More Comments</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reading-options">
+    <button class="reading-option" id="fontSettingsButton" title="Reading Settings">
+      <i class="fas fa-font"></i>
+    </button>
+    <button class="reading-option" title="Back to Top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </div>
+
+  <div class="font-options" id="fontOptions">
+    <h6>Reading Settings</h6>
+    <div class="font-size-control">
+      <button class="btn btn-sm btn-outline-secondary">A-</button>
+      <input type="range" class="form-range" min="1" max="5" step="1" value="3">
+      <button class="btn btn-sm btn-outline-secondary">A+</button>
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Theme</label>
+      <div class="color-schemes">
+        <div class="color-scheme light-scheme" title="Light Mode"></div>
+        <div class="color-scheme dark-scheme" title="Dark Mode"></div>
+        <div class="color-scheme sepia-scheme" title="Sepia Mode"></div>
+      </div>
+    </div>
+    <div class="mb-2">
+      <label for="fontFamily" class="form-label">Font</label>
+      <select class="form-select form-select-sm" id="fontFamily">
+        <option>Playfair Display</option>
+        <option>Georgia</option>
+        <option>Times New Roman</option>
+        <option>Arial</option>
+        <option>Verdana</option>
+      </select>
+    </div>
+    <div>
+      <label for="lineHeight" class="form-label">Line Spacing</label>
+      <select class="form-select form-select-sm" id="lineHeight">
+        <option>Normal</option>
+        <option>Comfortable</option>
+        <option>Relaxed</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center py-4 bg-light mt-5">
+    <p class="mb-0">&copy; 2025 Galeri Baca.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+
+  <script>
+    // Toggle font settings panel
+    document.getElementById('fontSettingsButton').addEventListener('click', function() {
+      document.getElementById('fontOptions').classList.toggle('show-options');
+    });
+
+    // Close font settings panel when clicking outside
+    document.addEventListener('click', function(event) {
+      const fontOptions = document.getElementById('fontOptions');
+      const fontSettingsButton = document.getElementById('fontSettingsButton');
+      
+      if (!fontOptions.contains(event.target) && event.target !== fontSettingsButton && !fontSettingsButton.contains(event.target)) {
+        fontOptions.classList.remove('show-options');
+      }
+    });
+
+    // Scroll to top button functionality
+    document.querySelector('.reading-options .fa-arrow-up').parentElement.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+
+</html>

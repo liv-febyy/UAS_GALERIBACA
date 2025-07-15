@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Semua Tag - Galeri Baca</title>
+  <link rel="icon" type="img/book_information_learning_info_icon_262073.webp"
+    href="assets/img/book_information_learning_info_icon_262073.webp">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+  <!-- Menambahkan Google Fonts untuk font elegan -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Mengatur font seluruh halaman */
+    body {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .dropdown-submenu {
+      position: relative;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #000000, #3e276d);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      border-radius: 0 0 20px 20px;
+    }
+
+    .tags-section {
+      background-color: #f9f8ff;
+      padding: 30px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-title {
+      color: #3e276d;
+      border-bottom: 3px solid #b8b0dd;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+
+    .tag-item {
+      display: inline-block;
+      margin: 8px;
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #b8b0dd, #9f6bbd);
+      color: white;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      position: relative;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .tag-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      background: linear-gradient(135deg, #9f6bbd, #6c4a9e);
+      color: white;
+      text-decoration: none;
+    }
+
+    .tag-count {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      padding: 2px 8px;
+      font-size: 0.8rem;
+      margin-left: 8px;
+    }
+
+    .tag-large {
+      font-size: 1.2rem;
+      padding: 15px 25px;
+    }
+
+    .tag-medium {
+      font-size: 1.05rem;
+      padding: 13px 22px;
+    }
+
+    .tag-small {
+      font-size: 0.9rem;
+      padding: 10px 18px;
+    }
+
+    .filter-section {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+
+    .btn-filter {
+      background-color: #b8b0dd;
+      border: none;
+      color: #333;
+      margin: 5px;
+      border-radius: 20px;
+      padding: 10px 20px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .btn-filter:hover, .btn-filter.active {
+      background-color: #9f6bbd;
+      color: white;
+    }
+
+    .search-box {
+      border: 2px solid #b8b0dd;
+      border-radius: 25px;
+      padding: 12px 20px;
+      font-size: 1rem;
+    }
+
+    .search-box:focus {
+      border-color: #9f6bbd;
+      box-shadow: 0 0 0 0.2rem rgba(191, 176, 221, 0.25);
+    }
+
+    .breadcrumb {
+      background: transparent;
+      padding: 0;
+    }
+
+    .breadcrumb-item a {
+      color: #6c4a9e;
+      text-decoration: none;
+    }
+
+    .breadcrumb-item.active {
+      color: #3e276d;
+    }
+
+    .stats-banner {
+      background: linear-gradient(135deg, #9f6bbd, #6c4a9e);
+      color: white;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .alphabet-nav {
+      background: white;
+      border-radius: 15px;
+    }
+  </style>
+
+</head>
+
+<body style="background-color: rgb(243, 243, 243);">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="jelajahi.html">
+        <img src="assets/img/book_information_learning_info_icon_262073.webp" alt="Logo" width="30" height="30"
+          class="d-inline-block align-text-top">
+        Galeri Baca
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="aboutus.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="jelajahi.html">Jelajahi</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Fandoms
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">All Fandoms</a></li>
+              <hr class="dropdown-divider">
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Anime & Manga</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Attack On Titan</a></li>
+                  <li><a class="dropdown-item" href="#">Eleceed</a></li>
+                  <li><a class="dropdown-item" href="#">Omniscient Reader VIewpoint</a></li>
+                  <li><a class="dropdown-item" href="#">One Piece</a></li>
+                  <li><a class="dropdown-item" href="#">Overlord</a></li>
+                  <li><a class="dropdown-item" href="#">Trash of The Count's Family</a></li>
+                </ul>
+              </li>
+              <hr class="dropdown-divider">
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">TV Shows</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Marvel</a></li>
+                  <li><a class="dropdown-item" href="#">Percy Jackson and the Olympians</a></li>
+                  <li><a class="dropdown-item" href="#">Supernatural</a></li>
+                  <li><a class="dropdown-item" href="#">The Witcher</a></li>
+                </ul>
+              </li>
+              <hr class="dropdown-divider">
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Video Game</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Genshin Impact</a></li>
+                  <li><a class="dropdown-item" href="#">Son Of The Forest</a></li>
+                  <li><a class="dropdown-item" href="#">The Forest</a></li>
+                  <li><a class="dropdown-item" href="#">Wuthering Wave</a></li>
+                </ul>
+              </li>
+              <hr class="dropdown-divider">
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+        </ul>
+        <a href="login.html" class="btn" style="background-color: #b8b0dd;">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <h1 class="display-4">Semua Tag</h1>
+      <p class="lead">Jelajahi karya berdasarkan tag dan tema favorit Anda</p>
+    </div>
+  </section>
+
+  <div class="container my-5">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="jelajahi.html">Jelajahi</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Semua Tag</li>
+      </ol>
+    </nav>
+
+    <!-- Statistics Banner -->
+    <div class="stats-banner">
+      <div class="row">
+        <div class="col-md-3">
+          <h3>2,456</h3>
+          <p class="mb-0">Total Tag</p>
+        </div>
+        <div class="col-md-3">
+          <h3>145,623</h3>
+          <p class="mb-0">Total Penggunaan</p>
+        </div>
+        <div class="col-md-3">
+          <h3>89</h3>
+          <p class="mb-0">Tag Trending</p>
+        </div>
+        <div class="col-md-3">
+          <h3>523</h3>
+          <p class="mb-0">Tag Baru Minggu Ini</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter dan Search -->
+    <div class="filter-section">
+      <div class="row align-items-center mb-3">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <input type="text" class="form-control search-box" placeholder="Cari tag..." id="tagSearch">
+        </div>
+        <div class="col-md-6">
+          <div class="text-end">
+            <button class="btn btn-filter active" onclick="filterTags('all')">Semua</button>
+            <button class="btn btn-filter" onclick="filterTags('popular')">Populer</button>
+            <button class="btn btn-filter" onclick="filterTags('trending')">Trending</button>
+            <button class="btn btn-filter" onclick="filterTags('new')">Terbaru</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Alphabet Navigation -->
+      <div class="alphabet-nav text-center">
+        <span class="me-2"><strong>Huruf:</strong></span>
+        <a href="#" class="alphabet-letter active" onclick="showByLetter('all')">Semua</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('A')">A</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('B')">B</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('C')">C</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('D')">D</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('E')">E</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('F')">F</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('G')">G</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('H')">H</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('I')">I</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('J')">J</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('K')">K</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('L')">L</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('M')">M</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('N')">N</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('O')">O</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('P')">P</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('Q')">Q</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('R')">R</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('S')">S</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('T')">T</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('U')">U</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('V')">V</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('W')">W</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('X')">X</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('Y')">Y</a>
+        <a href="#" class="alphabet-letter" onclick="showByLetter('Z')">Z</a>
+      </div>
+    </div>
+
+    <!-- Tag Categories -->
+    <div class="tags-section">
+      <!-- Trending Tags -->
+      <div class="tag-category" id="trending-section">
+        <h3 class="category-header">🔥 Tag Trending</h3>
+        <div class="tag-cloud">
+          <a href="#" class="tag-item tag-large" data-category="trending" data-letter="R">
+            Romance <span class="tag-count">15,234</span>
+            <span class="trending-badge">🔥</span>
+          </a>
+          <a href="#" class="tag-item tag-large" data-category="trending" data-letter="A">
+            Angst <span class="tag-count">12,456</span>
+            <span class="trending-badge">🔥</span>
+          </a>
+          <a href="#" class="tag-item tag-medium" data-category="trending" data-letter="F">
+            Fluff <span class="tag-count">9,876</span>
+            <span class="trending-badge">🔥</span>
+          </a>
+          <a href="#" class="tag-item tag-medium" data-category="trending" data-letter="S">
+            Slow Burn <span class="tag-count">8,543</span>
+            <span class="trending-badge">🔥</span>
+          </a>
+          <a href="#" class="tag-item tag-medium" data-category="trending" data-letter="H">
+            Hurt/Comfort <span class="tag-count">7,234</span>
+            <span class="trending-badge">🔥</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Popular Genre Tags -->
+      <div class="tag-category" id="genre-section">
+        <h3 class="category-header">📚 Tag Genre Populer</h3>
+        <div class="tag-cloud">
+          <a href="#" class="tag-item tag-large" data-category="popular" data-letter="A">
+            Adventure <span class="tag-count">11,234</span>
+          </a>
+          <a href="#" class="tag-item tag-large" data-category="popular" data-letter="F">
+            Fantasy <span class="tag-count">10,876</span>
+          </a>
+          <a href="#" class="tag-item tag-medium" data-category="popular" data-letter="M">
+            Mystery <span class="tag-count">6,543</span>
+          </a>
+          <a href="#" class="tag-item tag-medium" data-category="popular" data-letter="A">
+            Action <span class="tag-count">8,765</span>
+          </a>
+          <a href="#" class="tag-item tag-medium" data-category="popular" data-letter="S">
+            Supernatural <span class="tag-count">7,432</span>
+          </a>
+          <a href="#" class="tag-item tag-medium" data-category="popular" data-letter="C">
+            Comedy <span class="tag-count">5,987</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="D">
+            Drama <span class="tag-count">5,234</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="H">
+            Horror <span class="tag-count">4,321</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="S">
+            Sci-Fi <span class="tag-count">3,876</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Relationship Tags -->
+      <div class="tag-category" id="relationship-section">
+        <h3 class="category-header">💕 Tag Hubungan</h3>
+        <div class="tag-cloud">
+          <a href="#" class="tag-item tag-medium" data-category="popular" data-letter="F">
+            Friendship <span class="tag-count">8,765</span>
+          </a>
+          <a href="#" class="tag-item tag-medium" data-category="popular" data-letter="F">
+            Family <span class="tag-count">6,543</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="E">
+            Enemies to Lovers <span class="tag-count">5,432</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="F">
+            Friends to Lovers <span class="tag-count">4,876</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="L">
+            Love Triangle <span class="tag-count">3,654</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="S">
+            Soulmates <span class="tag-count">3,234</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="U">
+            Unrequited Love <span class="tag-count">2,987</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Setting Tags -->
+      <div class="tag-category" id="setting-section">
+        <h3 class="category-header">🌍 Tag Setting</h3>
+        <div class="tag-cloud">
+          <a href="#" class="tag-item tag-medium" data-category="popular" data-letter="A">
+            Alternate Universe <span class="tag-count">9,876</span>
+          </a>
+          <a href="#" class="tag-item tag-medium" data-category="popular" data-letter="M">
+            Modern AU <span class="tag-count">7,654</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="H">
+            Historical <span class="tag-count">4,321</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="C">
+            College/University <span class="tag-count">3,876</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="H">
+            High School <span class="tag-count">3,654</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="T">
+            Time Travel <span class="tag-count">2,987</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="A">
+            Apocalypse <span class="tag-count">2,543</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Character Tags -->
+      <div class="tag-category" id="character-section">
+        <h3 class="category-header">👤 Tag Karakter</h3>
+        <div class="tag-cloud">
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="C">
+            Coming of Age <span class="tag-count">5,432</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="A">
+            Anti-Hero <span class="tag-count">4,876</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="S">
+            Strong Female Lead <span class="tag-count">4,321</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="I">
+            Identity Issues <span class="tag-count">3,765</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="P">
+            PTSD <span class="tag-count">3,234</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="A">
+            Amnesia <span class="tag-count">2,876</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="popular" data-letter="R">
+            Redemption <span class="tag-count">2,543</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- New Tags -->
+      <div class="tag-category" id="new-section">
+        <h3 class="category-header">✨ Tag Terbaru</h3>
+        <div class="tag-cloud">
+          <a href="#" class="tag-item tag-small" data-category="new" data-letter="A">
+            AI Companion <span class="tag-count">234</span>
+            <span style="background: #28a745; color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 10px; margin-left: 5px;">Baru</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="new" data-letter="V">
+            Virtual Reality <span class="tag-count">187</span>
+            <span style="background: #28a745; color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 10px; margin-left: 5px;">Baru</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="new" data-letter="C">
+            Climate Fiction <span class="tag-count">156</span>
+            <span style="background: #28a745; color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 10px; margin-left: 5px;">Baru</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="new" data-letter="S">
+            Social Media AU <span class="tag-count">143</span>
+            <span style="background: #28a745; color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 10px; margin-left: 5px;">Baru</span>
+          </a>
+          <a href="#" class="tag-item tag-small" data-category="new" data-letter="P">
+            Pandemic AU <span class="tag-count">128</span>
+            <span style="background: #28a745; color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 10px; margin-left: 5px;">Baru</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- No Results Message -->
+    <div class="no-results" id="noResults" style="display: none;">
+      <h4>Tidak ada tag yang ditemukan</h4>
+      <p>Coba gunakan kata kunci yang berbeda atau lihat kategori lain.</p>
+    </div>
+
+    <!-- Load More Button -->
+    <div class="text-center mt-4">
+      <button class="btn btn-lg" style="background-color: #b8b0dd;" onclick="loadMoreTags()">
+        Muat Lebih Banyak Tag
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center py-4 bg-light">
+    <p class="mb-0">&copy; 2025 Galeri Baca.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+
+  <script>
+    // Script untuk dropdown submenu
+    document.addEventListener('DOMContentLoaded', function () {
+      var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu > a');
+      dropdownSubmenus.forEach(function (element) {
+        element.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var submenu = this.nextElementSibling;
+          if (submenu.style.display === 'block') {
+            submenu.style.display = 'none';
+          } else {
+            submenu.style.display = 'block';
+          }
+        });
+      });
+
+      // Search functionality
+      const searchInput = document.getElementById('tagSearch');
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const tagItems = document.querySelectorAll('.tag-item');
+        let hasResults = false;
+        
+        tagItems.forEach(item => {
+          const tagText = item.textContent.toLowerCase();
+          const parentSection = item.closest('.tag-category');
+          
+          if (tagText.includes(searchTerm)) {
+            item.style.display = 'inline-block';
+            parentSection.style.display = 'block';
+            hasResults = true;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        // Hide empty sections
+        document.querySelectorAll('.tag-category').forEach(section => {
+          const visibleTags = section.querySelectorAll('.tag-item[style*="inline-block"]');
+          if (visibleTags.length === 0 && searchTerm !== '') {
+            section.style.display = 'none';
+          }
+        });
+
+        // Show/hide no results message
+        document.getElementById('noResults').style.display = hasResults ? 'none' : 'block';
+      });
+    });
+
+    // Filter functions
+    function filterTags(category) {
+      // Remove active class and add to clicked button
+      document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const sections = document.querySelectorAll('.tag-category');
+      const noResults = document.getElementById('noResults');
+
+      if (category === 'all') {
+        sections.forEach(section => section.style.display = 'block');
+        noResults.style.display = 'none';
+      } else if (category === 'trending') {
+        sections.forEach(section => {
+          if (section.id === 'trending-section') {
+            section.style.display = 'block';
+          } else {
+            section.style.display = 'none';
+          }
+        });
+        noResults.style.display = 'none';
+      } else if (category === 'popular') {
+        sections.forEach(section => {
+          if (['genre-section', 'relationship-section', 'setting-section', 'character-section'].includes(section.id)) {
+            section.style.display = 'block';
+          } else {
+            section.style.display = 'none';
+          }
+        });
+        noResults.style.display = 'none';
+      } else if (category === 'new') {
+        sections.forEach(section => {
+          if (section.id === 'new-section') {
+            section.style.display = 'block';
+          } else {
+            section.style.display = 'none';
+          }
+        });
+        noResults.style.display = 'none';
+      }
+    }
+
+    // Alphabet filtering
+    function showByLetter(letter) {
+      // Remove active class and add to clicked letter
+      document.querySelectorAll('.alphabet-letter').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const tagItems = document.querySelectorAll('.tag-item');
+      let hasResults = false;
+
+      if (letter === 'all') {
+        tagItems.forEach(item => {
+          item.style.display = 'inline-block';
+          item.closest('.tag-category').style.display = 'block';
+        });
+        hasResults = true;
+      } else {
+        tagItems.forEach(item => {
+          const tagLetter = item.dataset.letter;
+          const parentSection = item.closest('.tag-category');
+          
+          if (tagLetter === letter) {
+            item.style.display = 'inline-block';
+            parentSection.style.display = 'block';
+            hasResults = true;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        // Hide empty sections
+        document.querySelectorAll('.tag-category').forEach(section => {
+          const visibleTags = section.querySelectorAll('.tag-item[style*="inline-block"]');
+          if (visibleTags.length === 0) {
+            section.style.display = 'none';
+          }
+        });
+      }
+
+      // Show/hide no results message
+      document.getElementById('noResults').style.display = hasResults ? 'none' : 'block';
+    }
+
+    // Load more tags function
+    function loadMoreTags() {
+      // Simulate loading more tags
+      alert('Fitur "Muat Lebih Banyak" akan segera tersedia!');
+    }
+  </script>
+</body>
+
+</html>
+
+    .alphabet-letter {
+      display: inline-block;
+      margin: 5px;
+      padding: 8px 12px;
+      background-color: #f3f0ff;
+      color: #6c4a9e;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .alphabet-letter:hover, .alphabet-letter.active {
+      background-color: #9f6bbd;
+      color: white;
+      text-decoration: none;
+    }
+
+    .tag-category {
+      margin-bottom: 40px;
+    }
+
+    .category-header {
+      color: #3e276d;
+      border-left: 4px solid #b8b0dd;
+      padding-left: 15px;
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .dropdown-submenu>.dropdown-menu {
+      top: 0;
+      left: 100%;
+      margin-top: 0;
+    }
+
+    .dropdown-submenu:hover>.dropdown-menu {
+      display: block;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 40px;
+      color: #666;
+    }
+
+    .trending-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
