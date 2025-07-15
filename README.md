@@ -73,3 +73,8 @@ git clone #linkGitMu
 # pindahkan object kedalam folder htdoc
 # update db configurasi
 components/db_connection.php
+
+# Nama Tim 
+1. Nasywa Zahrainda Syafana (3012310030)
+2. Livia Febrianti (3012310042)
+3. Karina Cahyasari  (3012310014)
