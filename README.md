@@ -68,7 +68,7 @@ Apache Server
 PHP 8.2
 Mysql 8.0
 
-git clone #linkGitMu
+git clone https://github.com/liv-febyy/UAS_GALERIBACA.git
 
 # pindahkan object kedalam folder htdoc
 # update db configurasi
